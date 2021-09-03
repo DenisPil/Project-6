@@ -1,0 +1,98 @@
+#header {
+  background-image: url("../../film-test/affichev2.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  box-shadow: 6px 6px 10px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+#menu {
+  color: #c2c2c2;
+  border: 2px black solid;
+  background-color: #2f4f4f;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  box-shadow: 6px 6px 10px black;
+  width: 200px;
+}
+
+body {
+  background-color: #313131;
+}
+
+/*# sourceMappingURL=style.css.map 9eb1e5*/
+h2 {
+  display: flex;
+  color: #c2c2c2;
+  background-color: #2f4f4f;
+  justify-content: center;
+  border: 3px black solid;
+  margin: 20px;
+}
+
+a:hover, :visited {
+  color: #c2c2c2;
+}
+
+#article {
+  box-shadow: 6px 6px 10px black;
+}
+
+/**
+CAROUSEL
+*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__item {
+  float: right;
+  color: #c2c2c2;
+  box-shadow: 6px 6px 10px black;
+}
+
+.carousel__container {
+  transition: transform 0.3s;
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel__container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.carousel__next, .carousel__prev {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: white;
+  background-size: 20px 20px;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -20px;
+  right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.carousel__prev {
+  right: auto;
+  left: 10px;
+}
+
+.carousel__next:hover, .carousel__prev:hover {
+  transform: scale(1.2);
+}
+
+.carousel__next--hiden, .carousel__prev--hiden {
+  opacity: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
