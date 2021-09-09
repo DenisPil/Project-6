@@ -8,12 +8,14 @@ class Carousel{
      * @param {boolean} options.loop doit on boucler en fin de carousel
      */
     constructor(element, options = {}){
+    
     this.element = element
     this.options = Object.assign({},{
       slidesToScroll:1,
       slidesVisible: 2,
     }, options)
     let children = [].slice.call(element.children)
+    
     this.isMobile = false
     this.currentItem = 0
     // Modification du DOM
@@ -22,9 +24,13 @@ class Carousel{
     this.root.appendChild(this.container)
     this.element.appendChild(this.root)
     this.items = children.map((child) =>{
+          
+        
         let item = this.createDivWhitClass('carousel__item')
         item.appendChild(child)
+
         this.container.appendChild(item)
+
         return item
     })
     this.setStyle()
@@ -90,15 +96,21 @@ class Carousel{
      * @return {nombre}
      */
     get slidesToScroll() {
-        return this.isMobile ? 1 : this.options.slidesToScroll
+        return this.isMobile ? 2 : this.options.slidesToScroll
+       
     }
 
     /**
      * @return {string}
      */
     get slidesVisible() {
-        return this.isMobile ? 1 : this.options.slidesVisible
+        return this.isMobile ? 2 : this.options.slidesVisible
     }
+
+    /**
+    * @return {nombre} 
+    * */ 
+
 
     /** 
      * 
@@ -113,29 +125,27 @@ createDivWhitClass (className){
     }
 }
 
-new Carousel(document.querySelector('#carousel_top_rated_movies'),{
+
+
+
+new Carousel(document.querySelector('#carousel-sci-fi'),{
     slidesVisible: 5,
-    slidesToScroll:3
+    slidesToScroll:2
 
 })
 
-new Carousel(document.querySelector('#carousel_adventure_movies'),{
+ 
+new Carousel(document.querySelector('#carousel-western'),{
     slidesVisible: 5,
-    slidesToScroll:3
-
-})
-new Carousel(document.querySelector('#carousel_sci-fi_movies'),{
-    slidesVisible: 5,
-    slidesToScroll:3
+    slidesToScroll:2
 
 })
 
+new Carousel(document.querySelector('#carousel-top-rate'),{
+    slidesVisible: 5,
+    slidesToScroll: 2
+
+})
 
 
 
-
-
-
-
-
-/** TTTEEEEEESSSSSSST*/

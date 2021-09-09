@@ -32,6 +32,7 @@ h2 {
   background-color: #2f4f4f;
   justify-content: center;
   border: 3px black solid;
+  box-shadow: 6px 6px 10px black;
   margin: 20px;
 }
 
@@ -39,30 +40,34 @@ a:hover, :visited {
   color: #c2c2c2;
 }
 
-#article {
-  box-shadow: 6px 6px 10px black;
-}
 
 /**
 CAROUSEL
 */
 .carousel {
+
   position: relative;
   overflow: hidden;
 }
 
 .carousel__item {
+
   float: right;
-  color: #c2c2c2;
-  box-shadow: 6px 6px 10px black;
+  color: #d1d0d0;
+  padding-left: 20px;
+  /*padding-bottom: 50px;*/
+  float: right;
+  /*box-shadow: 6px 6px 10px black;*/
 }
 
 .carousel__container {
+
   transition: transform 0.3s;
   transform: translate3d(0, 0, 0);
 }
 
 .carousel__container::after {
+
   content: "";
   clear: both;
   display: table;
@@ -70,10 +75,15 @@ CAROUSEL
 
 .carousel__next, .carousel__prev {
   position: absolute;
+  z-index: 1;
   width: 40px;
   height: 40px;
-  background: white;
-  background-size: 20px 20px;
+
+  background: url("../../picture/fleche-droite.svg")center center;
+  background-color: #fff;
+
+  background-repeat: no-repeat;
+  background-size: 41px 41px;
   border-radius: 50%;
   top: 50%;
   margin-top: -20px;
@@ -83,8 +93,9 @@ CAROUSEL
 }
 
 .carousel__prev {
+  background-image: url("../../picture/fleche-gauche.svg");
   right: auto;
-  left: 10px;
+  left: 8px;
 }
 
 .carousel__next:hover, .carousel__prev:hover {
