@@ -1,36 +1,32 @@
 class Carousel{
 
     /**
-     * 
      * @param {HTMLElement} element 
      * @param {Object} options.slidesToScroll Nombre délement a faire défiler
      * @param {Object} options.slidesVisible Nb element visible dans le slide
      * @param {boolean} options.loop doit on boucler en fin de carousel
      */
     constructor(element, options = {}){
-    
+    console.log(element)
     this.element = element
     this.options = Object.assign({},{
       slidesToScroll:1,
       slidesVisible: 2,
     }, options)
     let children = [].slice.call(element.children)
-    
+
     this.isMobile = false
     this.currentItem = 0
+
     // Modification du DOM
     this.root = this.createDivWhitClass('carousel')
     this.container = this.createDivWhitClass('carousel__container')
     this.root.appendChild(this.container)
     this.element.appendChild(this.root)
     this.items = children.map((child) =>{
-          
-        
         let item = this.createDivWhitClass('carousel__item')
         item.appendChild(child)
-
         this.container.appendChild(item)
-
         return item
     })
     this.setStyle()
@@ -47,9 +43,10 @@ class Carousel{
     setStyle() {
         let ratio = this.items.length / this.slidesVisible
         this.container.style.width = (ratio * 100) + "%"
-        this.items.forEach(item => item.style.width = (( 100 / this.slidesVisible) / ratio) + "%") 
+        this.items.forEach(item => item.style.width = (( 100 / this.slidesVisible) / ratio) + "%")
     }
 
+    // création des boutons du carousselle
     createNavigation() {
         let nextButton = this.createDivWhitClass ('carousel__next')
         let prevButton = this.createDivWhitClass ('carousel__prev')
@@ -75,7 +72,7 @@ class Carousel{
      */
     gotoItem(index){
         if (index < 0) {
-            index = this.items.length - this.options.slidesVisible
+            index = this.items.length - this.options.slidesVisible;
         }else if (index >= this.items.length || (this.items[this.currentItem + this.options.slidesVisible] === undefined && index > this.currentItem)){
             index = 0
         }
@@ -84,8 +81,9 @@ class Carousel{
         this.currentItem = index
         }
 
+    // Modifie le nombre d'élément en fonction de la taille de l'écran        
     onWindowResize() {
-        let mobile = window.innerWidth < 800
+        let mobile = window.innerWidth < 600
         if (mobile !== this.isMobile) {
             this.isMobile = mobile
             this.setStyle()
@@ -96,7 +94,7 @@ class Carousel{
      * @return {nombre}
      */
     get slidesToScroll() {
-        return this.isMobile ? 2 : this.options.slidesToScroll
+        return this.isMobile ? 1 : this.options.slidesToScroll
        
     }
 
@@ -104,19 +102,14 @@ class Carousel{
      * @return {string}
      */
     get slidesVisible() {
-        return this.isMobile ? 2 : this.options.slidesVisible
+        return this.isMobile ? 1 : this.options.slidesVisible
     }
 
-    /**
-    * @return {nombre} 
-    * */ 
-
-
-    /** 
-     * 
-     * @param {string} className 
-     * @returns {HTMLElement}
-     */   
+/** 
+ * Fonction qui crée une balise 'div'
+ * @param {string} className 
+ * @returns {HTMLElement}
+ */   
 
 createDivWhitClass (className){
     let div = document.createElement('div')
@@ -124,28 +117,3 @@ createDivWhitClass (className){
     return div
     }
 }
-
-
-
-
-new Carousel(document.querySelector('#carousel-sci-fi'),{
-    slidesVisible: 5,
-    slidesToScroll:2
-
-})
-
- 
-new Carousel(document.querySelector('#carousel-western'),{
-    slidesVisible: 5,
-    slidesToScroll:2
-
-})
-
-new Carousel(document.querySelector('#carousel-top-rate'),{
-    slidesVisible: 5,
-    slidesToScroll: 2
-
-})
-
-
-

@@ -1,32 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
-        
-        <link rel="stylesheet" href="public\css\style.css" />
-        <link rel="stylesheet" href="public\css\modal.css" />
-        
-        <script src="js/movies.js" async></script>
-        
-        
-        
+        <link rel="stylesheet" href="public/css/style.css"/>
+        <link rel="stylesheet" href="public/css/modal.css"/>
+        <link rel="stylesheet" href="public/css/carousel.css">
         <title>Just Stream It !</title>
     </head>
+
     <body>
         <header id="header">
-            <h1 class="header_logo"><figure> <img src="film-test/propre.png" alt="" >
-                </figure>
+            <h1 class="header_logo"><img src="film-test/propre.png" alt="logo">
+
             </h1>
         </header>
-
-        <nav class="menu">
-            <ul>
-                <div id="menu">
-                    <div class="nav_link 1"> <a href="file:///C:/OpenClassrooms/Project-6/stream_V1.html">Accueil</a></div>
-                    <div class="nav_link 2"> <a href="file:///C:/OpenClassrooms/Project-6/stream_V1.html" >Catégories</a></div>
-                </div>
-            </ul>
-        </nav>
 
         <section id="best_movie">
             <h2 class="title">Meilleur Film</h2>
@@ -38,15 +25,47 @@
         </section>
 
         <section id="sci-fi-movies">
-            <h2 class="title">Film Science-Fiction</h2>
+            <h2 class="title">Films Science-Fiction</h2>
             <div id="carousel-sci-fi"></div>
         </section>
 
         <section id="western-movies">
-            <h2 class="title">Film Western</h2>
+            <h2 class="title">Films Western</h2>
             <div id="carousel-western"></div>
         </section>
-    </body>
 
+        <section id="animation-movies">
+            <h2 class="title">Films Animation</h2>
+            <div id="carousel-animation"></div>
+        </section>
+
+
+        <footer>
+            <div class="footer">
+                <div class="list-footer">
+                    <tr>
+                        <td><a href="#">Qui sommes-nous ?</a>
+                        <a href="#">Nous contacter</a>
+                        <a href="#">Politique de confidentialité</a>
+                        Version 1.0 : Développé par <a href="#">DenisPil</a></td>
+                    </tr>
+                </div>
+                <div class="icone-footer">
+                    <tr>
+                        <a href="#"><img src="film-test/facebook.png" alt=""></a>
+                        <a href="#"><img src="film-test/twitter.png" alt=""></a>
+                        <a href="#"><img src="film-test/discord.png" alt=""></a>
+                        <a href="#"><img src="film-test/rss.png" alt=""></a></td>
+                    </tr>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script defer src="js/genre.js"></script>
+    <script defer src="js/movies.js"></script>
+    <script defer src="js/modal.js"></script>
+    <script defer src="js/carousel.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/bestmovie.js"></script>
 
 </html>

@@ -1,4 +1,20 @@
 let modal = null
+
+// Fonction qui place correctement la fenetre modale.
+const modalPlacement = function() {
+    document.addEventListener('mousemove', function(event){
+        const x = event.pageX;
+        if (x >= 1160){
+            modal.style.left =( -300 + "px")
+        }
+        document.querySelectorAll('.js-modal').forEach( a => {
+            a.addEventListener('click', openModal)
+        })
+    })
+}
+
+
+// Fonction qui ouvre la fenetre modale
 const openModal = function(e) {
     if (modal !== null){
         e.preventDefault()
@@ -8,7 +24,6 @@ const openModal = function(e) {
         }, 500)
     }
     else{
-    console.log(modal)
     modal = document.querySelector(e.target.getAttribute('href'))
     modal.style.display = null
     modal.removeAttribute('aria-hidden')
@@ -20,6 +35,7 @@ const openModal = function(e) {
     }
 }
 
+// Fonction qui ferme la fenetre modale
 const closeModal = function(e) {
     e.preventDefault()
     window.setTimeout(function() {
@@ -32,12 +48,13 @@ const closeModal = function(e) {
     modal.removeEventListener('click', closeModal)
     modal.querySelector(".js-modal-close").removeEventListener('click', closeModal)
     modal.querySelector(".js-modal-stop").removeEventListener('click', stopPropagation)
-    
 }
+
 
 const stopPropagation = function(e) {
     e.stopPropagation()
 }
+
 
 window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' || e.key === "Esc") {
@@ -46,8 +63,4 @@ window.addEventListener('keydown', function(e) {
 
 })
 
-document.querySelectorAll('.js-modal').forEach( a => {
-    a.addEventListener('click', openModal)
-
-})
-
+modalPlacement()
