@@ -1,5 +1,5 @@
 #header {
-  background-image: url("../../film-test/affichev2.png");
+  background-image: url("../../picture/affichev2.png");
   background-repeat: repeat;
   background-attachment: fixed;
   box-shadow: 6px 6px 10px black;
@@ -75,9 +75,6 @@ a:hover, :visited {
   justify-content: space-evenly;
   font-size: x-large;
 }
-
-
-
 
 .footer{
   display: flex;
